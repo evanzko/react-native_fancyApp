@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, ListView, Text, View, Button, Alert, TouchableHighlight } from 'react-native';
+import { ActivityIndicator, ListView, Text, View, Button, Alert, TouchableHighlight, StyleSheet } from 'react-native';
 import { observer } from 'mobx-react/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Store from '../store/LoginStore';
@@ -22,19 +22,21 @@ export default class Fetch extends Component {
     }
     return(
       <View>
-        <Icon
-            name= 'menu'
-            size= {50}
-            style = {{alignSelf: 'flex-start'}}
-            onPress = {() => this.props.navigation.navigate('DrawerOpen')}
-        />
-        <Text>This is a page displaying user infomation</Text>
-        <Text>User infomation</Text>
-        <Text>Token: {Store.token}</Text>
-        <Text>User: {Store.creds.username}</Text>
-        <Text>Pass: {Store.creds.password}</Text>
-        <Text>Starting Balence: {Store.startingBalence}</Text>
+        <Text style = {styles.headerText}>This is a page displaying user info</Text>
+        <Text style = {styles.bodyText}>User infomation</Text>
+        <Text style = {styles.bodyText}>Starting Balence: <Text style={{color:'red'}}>{Store.startingBalence}</Text></Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  bodyText: {
+    fontSize: 14,
+  },
+
+})

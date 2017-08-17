@@ -32,12 +32,6 @@ export default class Users extends Component {
         } 
         return(
             <View>
-                <Icon
-                    name= 'menu'
-                    size= {50}
-                    style = {{alignSelf: 'flex-start'}}
-                    onPress = {() => this.props.navigation.navigate('DrawerOpen')}
-                />
                 <View style = {styles.line} />
                 <ListView
                     style = {styles.lView}

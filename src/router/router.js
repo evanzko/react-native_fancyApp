@@ -1,6 +1,12 @@
 import React from 'react';
-
+import {
+    Text,
+    View,
+    Button,
+} from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import MIcon from 'react-native-vector-icons/MaterialIcons';
 
 import Landing from '../pages/LandingPage';
 import Login from '../pages/FancyLogin';
@@ -36,35 +42,116 @@ export const SignedOut = StackNavigator({
 export const UserStack = StackNavigator({
     UserList: {
         screen: UserList,
-        navigationOptions: {
-            header: null
+        navigationOptions: ({ navigation }) =>  {
+            return {
+                headerLeft:(
+                    <MIcon name="backspace" size={30} color="#000" backgroundColor="#fff" style = {{paddingLeft: 10}} onPress ={ () => navigation.navigate('SignedIn') }/>
+                ),
+                title: 'User List',
+                headerMode: 'screen',
+                gesturesEnabled: false,
+            }
         }         
     },
     User: {
         screen: User,
-        navigationOptions: {
-            header: null
+        navigationOptions: ({ navigation ,goBack }) => {
+            return{
+                headerLeft:(
+                    <MIcon name="backspace" size={30} color="#000" backgroundColor="#fff" style = {{paddingLeft: 10}} onPress ={ () => navigation.navigate('UserList') }/>
+                ),
+                headerRight: (
+                    <MIcon name="edit" size={30} color="#000" backgroundColor="#fff" style = {{paddingRight: 10}} onPress ={ () => navigation.navigate('Edit') }/>
+                ),
+                title: 'Information of List',
+                headerMode: 'screen',
+            }
         }        
     },
     Edit: {
         screen: Edit,
-        navigationOptions: {
-            header: null
-        }        
+        navigationOptions: ({ navigation}) => {
+            return{
+                headerLeft:(
+                    <MIcon name="backspace" size={30} color="#000" backgroundColor="#fff" style = {{paddingLeft: 10}} onPress ={ () => navigation.navigate('User') }/>
+                ),
+                title: 'Information of List',
+                headerMode: 'screen',
+            }
+        }       
     },
 });
 
+
+export const homeScreen = StackNavigator({
+    Home:{
+        screen: Home,
+        navigationOptions: ({ navigation }) =>  {
+            return {
+            drawerLabel: 'Home',
+            headerLeft:(
+                <MIcon name="menu" size={30} color="#000" backgroundColor="#fff" style = {{paddingLeft: 10}} onPress = {() => navigation.navigate('DrawerOpen')}/>
+            ),
+            title: 'Home Screen',
+            headerMode: 'screen',
+            drawerIcon: () => (
+                <Icon
+                name= 'home'
+                size= {25}
+                />
+            ),
+        }    
+    }
+    }
+});
+
+export const fetchScreen = StackNavigator({
+    Fetch:{
+        screen: Fetch,
+        navigationOptions:  ({ navigation }) =>  {
+            return{
+                drawerLabel: 'info',
+                Header: 'User Info',
+                title: 'User Info',
+                headerLeft:(
+                    <MIcon name="menu" size={30} color="#000" style = {{paddingLeft: 10}} backgroundColor="#fff" onPress = {() => navigation.navigate('DrawerOpen')}/>
+                ),
+                headerMode: 'screen',
+                drawerIcon: () => (
+                    <Icon
+                    name= 'info'
+                    size= {25}
+                    />
+                ),
+            }
+        }
+    }
+});
+
+
 export const SignedIn = DrawerNavigator({
     Home: {
-        screen: Home,
+        screen: homeScreen,
     },
     UserList: {
         screen: UserStack,
+        navigationOptions: {
+            drawerLabel: 'Users',
+            drawerIcon: () => (
+                <Icon
+                name= 'users'
+                size= {25}
+                />
+            ),
+            gesturesEnabled: false,
+        }
     },
     Fetch: {
-        screen: Fetch,
+        screen: fetchScreen,
     }
 });
+
+
 
 
 
@@ -74,7 +161,8 @@ export const RootNavigator = (signedIn = false) => {
             SignedIn: {
                 screen: SignedIn,
                 navigationOptions: {
-                    gesturesEnabled: false
+                    gesturesEnabled: false,
+                    title: 'test',
                 }
             },
             SignedOut: {

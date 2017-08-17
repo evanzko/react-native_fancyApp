@@ -19,13 +19,6 @@ export default class Home extends Component {
         
         return(
             <View>
-                <Icon
-                    name= 'menu'
-                    size= {25}
-                    style = {{alignSelf: 'flex-start'}}
-                    onPress = {() => this.props.navigation.navigate('DrawerOpen')}
-                />
-                <Text>Congrats you are signed In</Text>
                 <TouchableOpacity  
                     onPress={() => this.props.navigation.navigate('Fetch')}
                     style = {styles.login}>

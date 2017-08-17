@@ -19,17 +19,6 @@ export default class User extends Component{
         const currUser = Store.currentUser;
         return(
         <View style = {styles.screen}>
-            <View style = {styles.header}>
-                <Icon
-                    name= 'backspace'
-                    size= {30}
-                    style = {{alignSelf: 'flex-start'}}
-                    onPress = {() => this.props.navigation.goBack()}
-                />
-                <TouchableHighlight style = {styles.editButton} onPress = {() => this.props.navigation.navigate('Edit')}>
-                    <Text style = {styles.editText}>Edit</Text>
-                </TouchableHighlight>
-            </View>
             <View style = {styles.body}>
                 <Text style = {styles.headerText}>Information about the User</Text>
                 <Text style = {styles.text}>User id: {currUser.id}</Text>
