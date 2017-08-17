@@ -24,9 +24,6 @@ class LoginStore {
         .then(onRequestSuccess)
     }
 
-    onRequestSuccess(){
-
-    }
 
     loginUser(username,password){
         this.setCred(username,password);
@@ -119,16 +116,14 @@ class LoginStore {
         }
     }
 
-    setUserRole(newRole){    
-        var dict = {"Administrator": 2, "Accountant": 3, "Basic": 4, "View Only": 5};
-        var roleId = dict[newRole];        
+    setUserRole(newRole){       
         return fetch('https://demo.cashvue.com/api/v1.0/user/'+this.currentUser.id,{
             method: 'PUT',
             headers: {
                 'Authorization': this.token
             },
             body: JSON.stringify(
-                { role_id: roleId}
+                { role_id: newRole}
             ),
         })
             .then((response) => response.json())
@@ -146,16 +141,14 @@ class LoginStore {
             })
     }
 
-    setUserStatus(newStatus){
-        var dict = {"Active": 1, "Inactive": 2};
-        var statusId = dict[newStatus];        
+    setUserStatus(newStatus){       
         return fetch('https://demo.cashvue.com/api/v1.0/user/'+this.currentUser.id,{
             method: 'PUT',
             headers: {
                 'Authorization': this.token
             },
             body: JSON.stringify(
-                { account_user_status_id: statusId}
+                { account_user_status_id: newStatus}
             ),
         })
             .then((response) => response.json())

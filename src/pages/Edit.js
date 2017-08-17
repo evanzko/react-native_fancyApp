@@ -45,17 +45,17 @@ export default class User extends Component{
             <View>
                 <Text style = {styles.Text}>Role: </Text>
                 <Picker selectedValue = {this.state.role} mode = 'dropdown' onValueChange = {this.updateRole.bind(this)}>
-                    <Picker.Item label = "Administrator" value = "Administrator" />
-                    <Picker.Item label = "Accountant" value = "Accountant" />
-                    <Picker.Item label = "Basic" value = "Basic" />
-                    <Picker.Item label = "View Only" value = "View Only" />
+                    <Picker.Item label = "Administrator" value = "2" />
+                    <Picker.Item label = "Accountant" value = "3" />
+                    <Picker.Item label = "Basic" value = "4" />
+                    <Picker.Item label = "View Only" value = "5" />
                 </Picker>
             </View>
             <View>
                 <Text style = {styles.Text}>Status: </Text>
                 <Picker selectedValue = {this.state.user_status} mode = 'dropdown' onValueChange = {this.updateStatus.bind(this)}>
-                    <Picker.Item label = "Active" value = "Active" />
-                    <Picker.Item label = "Inactive" value = "Inactive" />
+                    <Picker.Item label = "Active" value = "1" />
+                    <Picker.Item label = "Inactive" value = "2" />
                 </Picker>
             </View>
             <TouchableHighlight style = {styles.submit} onPress = {this.handleSubmit.bind(this)}>
