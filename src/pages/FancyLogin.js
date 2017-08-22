@@ -45,11 +45,13 @@ export default class FancyLogin extends Component {
         }, 10000);
     }
 
+    //only will be called when success for login so assum everything is correct
     navigateFunction(){
-        onSignIn()
-            .then(clearInterval(timerId)) //stop the picture sliding effect. Ran into an error when moving to 
+        console.log(timerId)
+        // onSignIn(this.state.user)
+        clearInterval(timerId) //stop the picture sliding effect. Ran into an error when moving to 
             //another screen if this isn't here
-            .then(() => this.props.navigation.navigate('SignedIn'))
+        this.props.navigation.navigate('SignedIn')
     }
 
     backFunction(){
@@ -59,11 +61,13 @@ export default class FancyLogin extends Component {
 
     btnPress = () => {
         const {user,pass}=this.state;
-        Store.loginUser("evanko@uw.edu","tech2day").then((response)=>{
+        Store.loginUser("evanko@uw.edu","tech3day",true).then((response)=>{
             // Handle Success Case here
             console.log(response);
-            if(!response.error){
+            if(!response.errors){
                 this.navigateFunction();
+            }else{
+                Alert.alert('Wrong credentials', 'Oops something went wrong, try again!')
             }
         }).catch((err)=>{
             console.log(err);

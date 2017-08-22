@@ -7,6 +7,7 @@ import {
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
+import FIcon from 'react-native-vector-icons/FontAwesome';
 
 import Landing from '../pages/LandingPage';
 import Login from '../pages/FancyLogin';
@@ -32,9 +33,19 @@ export const SignedOut = StackNavigator({
     },
     Forgot: {
         screen: Forgot,
-        navigationOptions: {
-            header: null
-        }
+        navigationOptions: ({ navigation }) =>  {
+            return {
+                headerLeft:(
+                    <MIcon name="backspace" size={25} color="#000" backgroundColor="#fff" style = {{paddingLeft: 10}} onPress ={ () => navigation.navigate('Login') }/>
+                ),
+                headerRight: (
+                    <FIcon name = 'cubes' size = {25} style = {{paddingRight: 10,color: '#7f8c8d'}} />
+                ),
+                title: 'Forgot Password?',
+                headerMode: 'screen',
+                gesturesEnabled: false,
+            }
+        }     
     }
 
 });

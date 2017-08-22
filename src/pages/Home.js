@@ -14,7 +14,6 @@ import Store from '../store/LoginStore';
 
 export default class Home extends Component {
 
-    
     render(){
         
         return(

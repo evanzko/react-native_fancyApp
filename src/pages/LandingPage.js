@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 30,
         marginVertical: 10,
+        backgroundColor: '#f39c12'
     },
     text: { //style for the text in the button's, such as login and forgot password
         fontSize: 15,
