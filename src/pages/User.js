@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Store from '../store/LoginStore';
+import UStore from '../store/UserStore';
 import { observer } from 'mobx-react/native';
 
 @observer
 export default class User extends Component{
     render(){
-        const currUser = Store.currentUser;
+        const currUser = UStore.currentUser;
         return(
         <View style = {styles.screen}>
             <View style = {styles.body}>

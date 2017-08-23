@@ -1,6 +1,7 @@
 import { AsyncStorage } from "react-native";
 
 import Store from './store/LoginStore';
+import userStore from './store/UserStore';
 
 // export const onSignIn = (Username) => {
 //   AsyncStorage.setItem("username", "true");
@@ -12,7 +13,7 @@ export const onSignOut = () => {
 
 export const isSignedIn = () => {
   var res = new Promise((resolve, reject) => {
-    if(Store.token){
+    if(userStore.token){
       resolve(true);
     }else{
       // Get the Keychain credentials and login again and 

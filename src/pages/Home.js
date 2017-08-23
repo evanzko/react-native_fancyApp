@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { onSignOut } from '../auth';
-import Store from '../store/LoginStore';
+import UStore from '../store/UserStore';
 
 
 
@@ -24,7 +24,7 @@ export default class Home extends Component {
                     <Text style = {styles.text}>Display starting balence</Text>
                 </TouchableOpacity>
                 <TouchableOpacity  
-                    onPress={() => {Store.getUsers().then(() => this.props.navigation.navigate('UserList'))}}
+                    onPress={() => {UStore.getUsers().then(() => this.props.navigation.navigate('UserList'))}}
                     style = {styles.login}>
                     <Text style = {styles.text}>Get a list of Users</Text>
                 </TouchableOpacity>
@@ -32,6 +32,11 @@ export default class Home extends Component {
                     onPress={() => {onSignOut().then(() => this.props.navigation.navigate('SignedOut'))}}
                     style = {styles.login}>
                     <Text style = {styles.text}>Sign Out</Text>
+                </TouchableOpacity>
+                <TouchableOpacity  
+                    onPress={() => {() => this.props.navigation.navigate('Camera')}}
+                    style = {styles.login}>
+                    <Text style = {styles.text}>Take a picture</Text>
                 </TouchableOpacity>
             </View>
 

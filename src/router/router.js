@@ -16,7 +16,8 @@ import UserList from '../pages/UserList';
 import User from '../pages/User';
 import Edit from '../pages/Edit';
 import Forgot from '../pages/Forgot';
-import Fetch from '../pages/Fetch'
+import Fetch from '../pages/Fetch';
+import Camera from '../pages/Camera'
 
 export const SignedOut = StackNavigator({
     Landing: {
@@ -106,7 +107,7 @@ export const homeScreen = StackNavigator({
             title: 'Home Screen',
             headerMode: 'screen',
             drawerIcon: () => (
-                <Icon
+                <FIcon
                 name= 'home'
                 size= {25}
                 />
@@ -129,7 +130,7 @@ export const fetchScreen = StackNavigator({
                 ),
                 headerMode: 'screen',
                 drawerIcon: () => (
-                    <Icon
+                    <FIcon
                     name= 'info'
                     size= {25}
                     />
@@ -149,7 +150,7 @@ export const SignedIn = DrawerNavigator({
         navigationOptions: {
             drawerLabel: 'Users',
             drawerIcon: () => (
-                <Icon
+                <FIcon
                 name= 'users'
                 size= {25}
                 />
@@ -159,6 +160,19 @@ export const SignedIn = DrawerNavigator({
     },
     Fetch: {
         screen: fetchScreen,
+    },
+    Camera: {
+        screen: Camera,
+        navigationOptions: {
+            drawerLabel: 'Camera',
+            drawerIcon: () => (
+                <FIcon
+                name= 'camera'
+                size= {25}
+                />
+            ),
+            gesturesEnabled: false,
+        }
     }
 });
 

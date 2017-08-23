@@ -11,14 +11,14 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Store from '../store/LoginStore';
+import UStore from '../store/UserStore';
 
 export default class User extends Component{
     constructor(props){
         super(props);
         this.state = {
-            role: Store.currentUser.roles[0].name,
-            user_status: Store.currentUser.user_status,
+            role: UStore.currentUser.roles[0].name,
+            user_status: UStore.currentUser.user_status,
         }
     }
 
@@ -34,14 +34,14 @@ export default class User extends Component{
 
     handleSubmit(){
         console.log('the information has been submitted now communicating with the server')
-        Store.updateInfo(this.state.role,this.state.user_status)
+        UStore.updateInfo(this.state.role,this.state.user_status)
         this.props.navigation.navigate('User')
     }
 
     render(){
         return(
         <View>
-            <Text style = {styles.Title}>Edit the info about {Store.currentUser.email}</Text>
+            <Text style = {styles.Title}>Edit the info about {UStore.currentUser.email}</Text>
             <View>
                 <Text style = {styles.Text}>Role: </Text>
                 <Picker selectedValue = {this.state.role} mode = 'dropdown' onValueChange = {this.updateRole.bind(this)}>

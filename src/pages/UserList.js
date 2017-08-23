@@ -10,20 +10,20 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Store from '../store/LoginStore';
+import UStore from '../store/UserStore';
 
 
 export default class Users extends Component {
     handleClick(id){
-        console.log(Store.users[id]);
-        Store.setCurrentUser(id);
+        console.log(UStore.users[id]);
+        UStore.setCurrentUser(id);
         this.props.navigation.navigate('User')
     }
     
 
 
     render(){
-        if(Store.loading) {
+        if(UStore.loading) {
             return(
                 <View>
                     <ActivityIndicator />
@@ -35,7 +35,7 @@ export default class Users extends Component {
                 <View style = {styles.line} />
                 <ListView
                     style = {styles.lView}
-                    dataSource = {Store.userList}
+                    dataSource = {UStore.userList}
                     renderRow = {
                         (rowData,sectionId,rowId) => <TouchableHighlight style={styles.container} onPress = {this.handleClick.bind(this,rowId)}>
                                         <Text style={styles.text}>

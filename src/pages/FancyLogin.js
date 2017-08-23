@@ -19,7 +19,7 @@ import {
 import FIcon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { onSignIn } from '../auth';
-import Store from '../store/LoginStore';
+import LStore from '../store/LoginStore';
 
 const{ width, height } = Dimensions.get('window');
 
@@ -61,7 +61,7 @@ export default class FancyLogin extends Component {
 
     btnPress = () => {
         const {user,pass}=this.state;
-        Store.loginUser("evanko@uw.edu","tech3day",true).then((response)=>{
+        LStore.loginUser("evanko@uw.edu","tech3day",true).then((response)=>{
             // Handle Success Case here
             console.log(response);
             if(!response.errors){
