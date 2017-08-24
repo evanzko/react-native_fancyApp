@@ -17,7 +17,8 @@ import User from '../pages/User';
 import Edit from '../pages/Edit';
 import Forgot from '../pages/Forgot';
 import Fetch from '../pages/Fetch';
-import Camera from '../pages/Camera'
+import Camera from '../pages/Camera';
+import Audio from '../pages/Audio'
 
 export const SignedOut = StackNavigator({
     Landing: {
@@ -125,8 +126,11 @@ export const fetchScreen = StackNavigator({
                 drawerLabel: 'info',
                 Header: 'User Info',
                 title: 'User Info',
-                headerLeft:(
+                headerRight:(
                     <MIcon name="menu" size={30} color="#000" style = {{paddingLeft: 10}} backgroundColor="#fff" onPress = {() => navigation.navigate('DrawerOpen')}/>
+                ),
+                headerLeft:(
+                    <MIcon name="backspace" size={30} color="#000" backgroundColor="#fff" style = {{paddingLeft: 10}} onPress ={ () => navigation.navigate('Home') }/>
                 ),
                 headerMode: 'screen',
                 drawerIcon: () => (
@@ -168,6 +172,19 @@ export const SignedIn = DrawerNavigator({
             drawerIcon: () => (
                 <FIcon
                 name= 'camera'
+                size= {25}
+                />
+            ),
+            gesturesEnabled: false,
+        }
+    },
+    Audio: {
+        screen: Audio,
+        navigationOptions: {
+            drawerLabel: 'Audio',
+            drawerIcon: () => (
+                <FIcon
+                name= 'music'
                 size= {25}
                 />
             ),

@@ -2,7 +2,7 @@ package com.fancyapp;
 
 import android.app.Application;
 
-
+import com.futurice.rctaudiotoolkit.AudioPackage;
 import com.oblador.keychain.KeychainPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactApplication;
@@ -27,9 +27,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RCTCameraPackage(),
+          new RCTCameraPackage(),
           new VectorIconsPackage(),
-          new KeychainPackage()
+          new KeychainPackage(),
+          new AudioPackage()
       );
     }
   };

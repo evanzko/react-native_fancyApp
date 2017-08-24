@@ -11,6 +11,7 @@ class UserStore{
     @observable users = [];
     @observable userList;
     @observable currentUser;
+    @observable loading = true;
 
     getBalence(){
         if(this.token == null){
@@ -26,11 +27,12 @@ class UserStore{
                 .then((responseJson) => {
                     console.log(responseJson)
                     this.startingBalence = responseJson.amount;
+                    this.loading = false;
                 })
                 .catch((error) => {
                     console.log(error);
                     Alert.alert('Connection error', 'Couldn\'t fetch the data.');
-                    return error;
+                    this.loading = false;
                 })
         }
     }
@@ -54,12 +56,12 @@ class UserStore{
                 var ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 !== r2});
                 this.userList = ds.cloneWithRows(responseJson.data);     
                 console.log('userList: ', this.userList)
-
+                this.loading = false;
             })
             .catch((error) => {
                 console.log(error);
                 Alert.alert('Connection error', 'Couldn\'t fetch the data.');
-                return error;
+                this.loading = false;
             })
     }
 

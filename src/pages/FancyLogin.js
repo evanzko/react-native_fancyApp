@@ -47,7 +47,6 @@ export default class FancyLogin extends Component {
 
     //only will be called when success for login so assum everything is correct
     navigateFunction(){
-        console.log(timerId)
         // onSignIn(this.state.user)
         clearInterval(timerId) //stop the picture sliding effect. Ran into an error when moving to 
             //another screen if this isn't here
@@ -165,7 +164,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'rgba(0,0,0,.6)',
         position: 'absolute',
-        height: (height-StatusBar.currentHeight),
+        height: height,
         width: width,
         paddingBottom: 20,
     },

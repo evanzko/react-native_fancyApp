@@ -21,10 +21,10 @@ export default class Home extends Component {
                 <TouchableOpacity  
                     onPress={() => this.props.navigation.navigate('Fetch')}
                     style = {styles.login}>
-                    <Text style = {styles.text}>Display starting balence</Text>
+                    <Text style = {styles.text}>Display starting balance</Text>
                 </TouchableOpacity>
                 <TouchableOpacity  
-                    onPress={() => {UStore.getUsers().then(() => this.props.navigation.navigate('UserList'))}}
+                    onPress={() => this.props.navigation.navigate('UserList')}
                     style = {styles.login}>
                     <Text style = {styles.text}>Get a list of Users</Text>
                 </TouchableOpacity>
@@ -34,9 +34,14 @@ export default class Home extends Component {
                     <Text style = {styles.text}>Sign Out</Text>
                 </TouchableOpacity>
                 <TouchableOpacity  
-                    onPress={() => {() => this.props.navigation.navigate('Camera')}}
+                    onPress={() => this.props.navigation.navigate('Camera')}
                     style = {styles.login}>
                     <Text style = {styles.text}>Take a picture</Text>
+                </TouchableOpacity>
+                <TouchableOpacity  
+                    onPress={() => this.props.navigation.navigate('Audio')}
+                    style = {styles.login}>
+                    <Text style = {styles.text}>Record a memo</Text>
                 </TouchableOpacity>
             </View>
 

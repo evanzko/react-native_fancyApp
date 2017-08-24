@@ -7,6 +7,7 @@ import UStore from '../store/UserStore';
 
 @observer
 export default class Fetch extends Component {
+  //gets the balance of the 
   componentWillMount(){
     UStore.getBalence();
   }
@@ -24,7 +25,7 @@ export default class Fetch extends Component {
       <View>
         <Text style = {styles.headerText}>This is a page displaying user info</Text>
         <Text style = {styles.bodyText}>User infomation</Text>
-        <Text style = {styles.bodyText}>Starting Balence: <Text style={{color:'red'}}>{UStore.startingBalence}</Text></Text>
+        <Text style = {styles.bodyText}>Starting Balance: <Text style={{color:'red'}}>{UStore.startingBalence}</Text></Text>
       </View>
     );
   }

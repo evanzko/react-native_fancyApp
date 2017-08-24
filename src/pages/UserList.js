@@ -8,16 +8,21 @@ import {
     StyleSheet,
     TouchableHighlight
 } from 'react-native';
+import { observer } from 'mobx-react/native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import UStore from '../store/UserStore';
 
-
+@observer
 export default class Users extends Component {
     handleClick(id){
         console.log(UStore.users[id]);
         UStore.setCurrentUser(id);
         this.props.navigation.navigate('User')
+    }
+
+    componentWillMount(){
+        UStore.getUsers();
     }
     
 
