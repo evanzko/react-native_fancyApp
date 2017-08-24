@@ -20,29 +20,31 @@ export default class Home extends Component {
             <View>
                 <TouchableOpacity  
                     onPress={() => this.props.navigation.navigate('Fetch')}
-                    style = {styles.login}>
+                    style = {styles.buttonEven}>
                     <Text style = {styles.text}>Display starting balance</Text>
                 </TouchableOpacity>
                 <TouchableOpacity  
                     onPress={() => this.props.navigation.navigate('UserList')}
-                    style = {styles.login}>
+                    style = {styles.buttonOdd}>
                     <Text style = {styles.text}>Get a list of Users</Text>
                 </TouchableOpacity>
                 <TouchableOpacity  
-                    onPress={() => {onSignOut().then(() => this.props.navigation.navigate('SignedOut'))}}
-                    style = {styles.login}>
-                    <Text style = {styles.text}>Sign Out</Text>
+                onPress={() => this.props.navigation.navigate('Audio')}
+                style = {styles.buttonEven}>
+                <Text style = {styles.text}>Record a memo</Text>
                 </TouchableOpacity>
+
                 <TouchableOpacity  
                     onPress={() => this.props.navigation.navigate('Camera')}
-                    style = {styles.login}>
+                    style = {styles.buttonOdd}>
                     <Text style = {styles.text}>Take a picture</Text>
                 </TouchableOpacity>
                 <TouchableOpacity  
-                    onPress={() => this.props.navigation.navigate('Audio')}
-                    style = {styles.login}>
-                    <Text style = {styles.text}>Record a memo</Text>
+                onPress={() => {onSignOut().then(() => this.props.navigation.navigate('SignedOut'))}}
+                style = {styles.buttonEven}>
+                <Text style = {styles.text}>Sign Out</Text>
                 </TouchableOpacity>
+
             </View>
 
         );
@@ -50,10 +52,18 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-    login: { //style for the login button
+    buttonEven: { //style for the button
         width: 250,
         height: 30,
         backgroundColor: '#95a5a6',
+        alignSelf: 'center',
+        borderRadius: 30,
+        marginVertical: 10
+    },
+    buttonOdd: { //style for the button
+        width: 250,
+        height: 30,
+        backgroundColor: '#f39c12',
         alignSelf: 'center',
         borderRadius: 30,
         marginVertical: 10
@@ -63,4 +73,5 @@ const styles = StyleSheet.create({
         color: 'white',
         alignSelf: 'center'
     },
+
 });
