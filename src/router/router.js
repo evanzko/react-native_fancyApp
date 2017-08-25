@@ -3,8 +3,9 @@ import {
     Text,
     View,
     Button,
+    ScrollView
 } from 'react-native';
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import FIcon from 'react-native-vector-icons/FontAwesome';
@@ -126,9 +127,6 @@ export const fetchScreen = StackNavigator({
                 drawerLabel: 'info',
                 Header: 'User Info',
                 title: 'User Info',
-                headerRight:(
-                    <MIcon name="menu" size={30} color="#000" style = {{paddingLeft: 10}} backgroundColor="#fff" onPress = {() => navigation.navigate('DrawerOpen')}/>
-                ),
                 headerLeft:(
                     <MIcon name="backspace" size={30} color="#000" backgroundColor="#fff" style = {{paddingLeft: 10}} onPress ={ () => navigation.navigate('Home') }/>
                 ),
@@ -144,6 +142,33 @@ export const fetchScreen = StackNavigator({
     }
 });
 
+export const soundScreen = StackNavigator({
+    Fetch:{
+        screen: Audio,
+        navigationOptions:  ({ navigation }) =>  {
+            return{
+                headerLeft:(
+                    <MIcon name="backspace" size={30} color="#000" backgroundColor="#fff" style = {{paddingLeft: 10}} onPress ={ () => navigation.navigate('Home') }/>
+                ),
+                headerMode: 'screen',
+                drawerLabel: 'Audio',
+                title: 'Record your memo',
+                drawerIcon: () => (
+                    <FIcon
+                    name= 'music'
+                    size= {25}
+                    />
+                ),
+                gesturesEnabled: false,
+
+            }
+        }
+    }
+});
+
+export const CustomDrawerContentComponent = (props) => {
+    
+}
 
 export const SignedIn = DrawerNavigator({
     Home: {
@@ -175,21 +200,31 @@ export const SignedIn = DrawerNavigator({
                 size= {25}
                 />
             ),
-            gesturesEnabled: false,
         }
     },
     Audio: {
-        screen: Audio,
-        navigationOptions: {
-            drawerLabel: 'Audio',
-            drawerIcon: () => (
-                <FIcon
-                name= 'music'
-                size= {25}
-                />
-            ),
-            gesturesEnabled: false,
-        }
+        screen: soundScreen,
+    },
+},{
+    contentOptions: {
+        activeBackgroundColor: '#2c3e50'
+    },
+    contentComponent: props => {
+        return(
+            <View style = {{backgroundColor: '#bdc3c7', flex: 1}}>
+                <View>
+                    <FIcon 
+                        name = 'cubes'
+                        size = {50}
+                        style = {{color: 'white', alignSelf: 'center'}}
+                    />
+                </View>
+                <ScrollView>
+                    <DrawerItems {...props} /> 
+                </ScrollView>
+            </View>
+        );
+
     }
 });
 

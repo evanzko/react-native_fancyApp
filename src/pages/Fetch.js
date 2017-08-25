@@ -22,8 +22,7 @@ export default class Fetch extends Component {
       );
     }
     return(
-      <View>
-        <Text style = {styles.headerText}>This is a page displaying user info</Text>
+      <View style = {styles.screen}>
         <Text style = {styles.bodyText}>User infomation</Text>
         <Text style = {styles.bodyText}>Starting Balance: <Text style={{color:'red'}}>{UStore.startingBalence}</Text></Text>
       </View>
@@ -38,6 +37,10 @@ const styles = StyleSheet.create({
   },
   bodyText: {
     fontSize: 14,
+  },
+  screen: {
+    backgroundColor: '#bdc3c7',
+    flex: 1,
   },
 
 })

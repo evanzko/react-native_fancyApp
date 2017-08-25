@@ -202,13 +202,12 @@ export default class AudioContainer extends Component {
                         <Slider step={0.0001} disabled={this.state.playButtonDisabled} onValueChange={(percentage) => this._seek(percentage)} value={this.state.progress}/>
                     </View>
                 </View>
-                <View style={styles.recordContainer}>
                     <View>
                         <Text style={styles.title}>
                         Recording
                         </Text>
                     </View>
-                    <View style={styles.buttonContainer}>
+                    <View style={styles.recordContainer}>
                         <Button disabled={this.state.recordButtonDisabled} style={styles.button} onPress={() => this._toggleRecord()}
                             title = {this.state.recordButton}
                         />
@@ -216,7 +215,6 @@ export default class AudioContainer extends Component {
                     <View>
                         <Text style={styles.errorMessage}>{this.state.error}</Text>
                     </View>
-                </View>
             </View>
         );
     }
@@ -227,28 +225,27 @@ var styles = StyleSheet.create({
       padding: 20,
       fontSize: 20,
       backgroundColor: 'white',
+      margin: 10,
     },
     slider: {
       height: 10,
       margin: 10,
     },
     buttonContainer: {
-    //   flex: 1,
-    //   flexDirection: 'column',
-    //   justifyContent: 'space-between',
-    //   alignItems: 'center',
+        flex:1,
+        backgroundColor: '#bdc3c7'
     },
     playContainer: {
         flex: 0,
-        flexDirection: 'column',
+        flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        margin:10,
     },
     recordContainer: {
         margin: 10,
-        flex: 0,
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         alignItems: 'center',
     },
     settingsContainer: {

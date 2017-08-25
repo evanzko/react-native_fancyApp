@@ -13,7 +13,6 @@ class LoginStore {
 
 
     loginUser(username,password,save=false){
-        //hi@cashvue.com tech2day
         console.log('logging in '+ username)
         return fetch('https://demo.cashvue.com/api/v1.0/login', {
             method: 'POST',

@@ -17,7 +17,7 @@ export default class Home extends Component {
     render(){
         
         return(
-            <View>
+            <View style = {styles.screen}>
                 <TouchableOpacity  
                     onPress={() => this.props.navigation.navigate('Fetch')}
                     style = {styles.buttonEven}>
@@ -29,11 +29,10 @@ export default class Home extends Component {
                     <Text style = {styles.text}>Get a list of Users</Text>
                 </TouchableOpacity>
                 <TouchableOpacity  
-                onPress={() => this.props.navigation.navigate('Audio')}
-                style = {styles.buttonEven}>
+                    onPress={() => this.props.navigation.navigate('Audio')}
+                    style = {styles.buttonEven}>
                 <Text style = {styles.text}>Record a memo</Text>
                 </TouchableOpacity>
-
                 <TouchableOpacity  
                     onPress={() => this.props.navigation.navigate('Camera')}
                     style = {styles.buttonOdd}>
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
     buttonEven: { //style for the button
         width: 250,
         height: 30,
-        backgroundColor: '#95a5a6',
+        backgroundColor: '#2c3e50',
         alignSelf: 'center',
         borderRadius: 30,
         marginVertical: 10
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
     buttonOdd: { //style for the button
         width: 250,
         height: 30,
-        backgroundColor: '#f39c12',
+        backgroundColor: '#FF9800',
         alignSelf: 'center',
         borderRadius: 30,
         marginVertical: 10
@@ -73,5 +72,9 @@ const styles = StyleSheet.create({
         color: 'white',
         alignSelf: 'center'
     },
+    screen: {
+        backgroundColor: '#bdc3c7',
+        flex: 1,
+    }
 
 });

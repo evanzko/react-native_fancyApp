@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
     Text,
+    ScrollView,
     View,
     ListView,
     ActivityIndicator,
@@ -36,8 +37,7 @@ export default class Users extends Component {
             );
         } 
         return(
-            <View>
-                <View style = {styles.line} />
+            <ScrollView>
                 <ListView
                     style = {styles.lView}
                     dataSource = {UStore.userList}
@@ -50,7 +50,7 @@ export default class Users extends Component {
                     }
                     renderSeparator = {(sectionId, rowId) => <View key = {rowId} style = {styles.seperator} />}
                 />
-            </View>
+            </ScrollView>
 
         );
     }
