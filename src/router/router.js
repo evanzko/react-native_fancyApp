@@ -5,7 +5,7 @@ import {
     Button,
     ScrollView
 } from 'react-native';
-import { StackNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
+import { StackNavigator, DrawerNavigator, DrawerItems, NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import FIcon from 'react-native-vector-icons/FontAwesome';
@@ -21,6 +21,7 @@ import Fetch from '../pages/Fetch';
 import Camera from '../pages/Camera';
 import Audio from '../pages/Audio'
 
+//signed out stack
 export const SignedOut = StackNavigator({
     Landing: {
         screen: Landing,
@@ -52,6 +53,15 @@ export const SignedOut = StackNavigator({
     }
 
 });
+
+export const globalLogout =  ({navigation}) => {
+    // const navigateAction = NavigationActions.navigate({
+    //     routeName: 'SignedOut',
+    //     params: {},
+    //     action: {},
+    // })
+    // navigation.dispatch(navigateAction);
+}
 
 export const UserStack = StackNavigator({
     UserList: {
@@ -165,10 +175,6 @@ export const soundScreen = StackNavigator({
         }
     }
 });
-
-export const CustomDrawerContentComponent = (props) => {
-    
-}
 
 export const SignedIn = DrawerNavigator({
     Home: {

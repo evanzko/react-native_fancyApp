@@ -13,7 +13,6 @@ class LoginStore {
 
 
     loginUser(username,password,save=false){
-        console.log('logging in '+ username)
         return fetch('https://demo.cashvue.com/api/v1.0/login', {
             method: 'POST',
             body: JSON.stringify(
@@ -29,7 +28,6 @@ class LoginStore {
             .then((responseJson) => {
                 UStore.token = responseJson.token;
                 this.loading = false;
-                console.log(UStore.hello);
                 UStore.setUserInfo(responseJson.user);
                 if(save){
                     this.saveCred(username,password);

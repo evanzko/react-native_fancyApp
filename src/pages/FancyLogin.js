@@ -60,7 +60,7 @@ export default class FancyLogin extends Component {
 
     btnPress = () => {
         const {user,pass}=this.state;
-        LStore.loginUser("evanko@uw.edu","tech3day",true).then((response)=>{
+        LStore.loginUser('evanko@uw.edu','tech3day',true).then((response)=>{
             // Handle Success Case here
             console.log(response);
             if(!response.errors){
